@@ -1,1 +1,2 @@
 + Unsigned: đi vs kiểu int, không âm, tăng giới hạn lưu trữ (mang giá trị âm lên giá trị dương)
++ Decimal : lưu số phập phân ( precision (tổng số chữ số) và scale (số chữ số sau dấu thập phân))
