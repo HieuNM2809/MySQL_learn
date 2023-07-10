@@ -4,7 +4,6 @@ Link all string function:
 Link format code SQL:
 -> https://codebeautify.org/sqlformatter
 
-Câu sql new: 
-SELECT COUNT(DISTINCT name) AS total_count FROM table_name;
+
 
 
