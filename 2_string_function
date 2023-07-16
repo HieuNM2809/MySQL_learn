@@ -4,6 +4,6 @@
 + Link format code SQL:
 -> https://codebeautify.org/sqlformatter
 
-
++ IFNULL (SUM (amount), (0)
 
 

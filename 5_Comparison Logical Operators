@@ -24,4 +24,10 @@
 < : less than
 = : equal to
 
------------------------------------------------------------------------------------------
+----------------------Control Functions-------------------------------------------------------------------
+
+Name	Description
+CASE	Case operator
+IF()	If/else construct
+IFNULL()	Null if/else construct
+NULLIF()	Return NULL if expr1 = expr2
