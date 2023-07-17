@@ -1,5 +1,5 @@
 
------------------------On Delete CASCADE ( xóa parent thì child xóa luôn) -------------------------------------------------------------
+----------------------- On Delete CASCADE ( xóa parent thì child xóa luôn) -------------------------------------------------------------
 
 CREATE TABLE customers (
     id INT PRIMARY KEY AUTO_INCREMENT,

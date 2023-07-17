@@ -4,6 +4,6 @@
 + Link format code SQL:
 -> https://codebeautify.org/sqlformatter
 
-+ IFNULL (SUM (amount), (0)
++ IFNULL (SUM (amount), (0)   : Nếu có các string function (count, avg, max) thì nên thêm IFNULL.
 
 

@@ -1,5 +1,5 @@
 
------------------------JOIN, GROUP, ORDER -------------------------------------------------------------
+----------------------- JOIN, GROUP, ORDER -------------------------------------------------------------
 
 SELECT 
     first_name, last_name, SUM(amount) AS total
@@ -10,7 +10,7 @@ FROM
 GROUP BY first_name , last_name
 ORDER BY total;
 
--------------------------LEFT JOIN, GROUP, IFNULL ( ngoài ca có CASE, IF, NULLIF ) -----------------------------------------------------------
+------------------------- LEFT JOIN, GROUP, IFNULL ( ngoài ca có CASE, IF, NULLIF ) -----------------------------------------------------------
 
 SELECT 
     first_name, 
