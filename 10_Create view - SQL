@@ -1,0 +1,34 @@
+-- INSTEAD OF TYPING THIS QUERY ALL THE TIME...
+SELECT
+	title,
+	released_year,
+	genre,
+	rating,
+	first_name,
+	last_name 
+FROM
+	reviews
+	JOIN series ON series.id = reviews.series_id
+	JOIN reviewers ON reviewers.id = reviews.reviewer_id;
+
+-- WE CAN CREATE A VIEW:
+CREATE VIEW full_reviews AS 
+SELECT
+title,
+released_year,
+genre,
+rating,
+first_name,
+last_name 
+FROM
+	reviews
+	JOIN series ON series.id = reviews.series_id
+	JOIN reviewers ON reviewers.id = reviews.reviewer_id;
+    
+
+-- NOW WE CAN TREAT THAT VIEW AS A VIRTUAL TABLE 
+-- (AT LEAST WHEN IT COMES TO SELECTING)
+SELECT
+	* 
+FROM
+	full_reviews;
