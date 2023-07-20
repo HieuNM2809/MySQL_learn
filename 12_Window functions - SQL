@@ -1,5 +1,5 @@
 
----------------------------------------------------------------------------------------------------
+-------------------------------------Code table test--------------------------------------------------------------
 
 CREATE TABLE employees (
     emp_no INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,7 +30,7 @@ INSERT INTO employees (department, salary) VALUES
 ('customer service', 56000),
 ('customer service', 55000);
  
-------------------------GẮN AVG(salary) lên mỗi dòng---------------------------------------------------------------------------
+-------------------------- GẮN AVG(salary) lên mỗi dòng---------------------------------------------------------------------------
 
 SELECT emp_no, department, salary, AVG(salary) OVER() FROM employees;
  
@@ -42,14 +42,14 @@ SELECT
     MAX(salary) OVER()
 FROM employees;
 
-------------------------------TÍNH MIN MAX nhưng emp_no, department, salary lấy dòng đầu tiên --------------------------------------------------------------------
+----------------------------- TÍNH MIN MAX nhưng emp_no, department, salary lấy dòng đầu tiên --------------------------------------------------------------------
     
 SELECT 
     emp_no, department, salary, MIN(salary), MAX(salary)
 FROM
     employees;
  
----------------------------------------------------------------------------------------------------
+-------------------------------------- Ví dụ 1 OVER (partition BY department) -------------------------------------------------------------
 
 SELECT emp_no,
        department,
@@ -63,7 +63,7 @@ FROM   emps;
 + Window functions Tính trung bình  Avg (salary) của tất cả các dòng
 + GROUP BY tính của 1 dòng
 
----------------------------------------------------------------------------------------------------
+---------------------------------------- Ví dụ 2: COUNT(*) OVER(PARTITION BY department) -----------------------------------------------------------
 
 SELECT 
     emp_no, 
@@ -86,4 +86,22 @@ SELECT
     salary, 
     SUM(salary) OVER(PARTITION BY department) AS dept_payroll,
     SUM(salary) OVER() AS total_payroll
+FROM employees;
+
+
+---------------------------------------- Ví dụ 2 : SUM(salary) OVER(PARTITION BY department ORDER BY salary) -----------------------------------------------------------
+
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    SUM(salary) OVER(PARTITION BY department ORDER BY salary) AS rolling_dept_salary,
+    SUM(salary) OVER(PARTITION BY department) AS total_dept_salary
+FROM employees;
+ 
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    MIN(salary) OVER(PARTITION BY department ORDER BY salary DESC) as rolling_min
 FROM employees;
