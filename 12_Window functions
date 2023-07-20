@@ -11,6 +11,14 @@ VD: SELECT emp_no,
            partition BY department) AS dept_avg
       FROM   emps;
 
-------------------------OVER()--------------------------------------------
+------------------------OVER() - TÍNH Aggregate functions trên mỗi dòng  --------------------------------------------
 
 + Gắn Aggregate functions (VD: AVG, COUNT,.. ) lên mỗi dòng 
+
+-------------------------OVER(PARTITION BY department) - Lấy trung bình cho mỗi dòng và group by theo department -------------------------------------------------
+
+-- Lấy trung bình cho mỗi dòng và group by theo department
+AVG(salary) OVER(PARTITION BY department) AS dept_avg, 
+
+-- Lấy trung bình cho mỗi dòng
+AVG(salary) OVER() AS company_avg  

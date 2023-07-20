@@ -59,10 +59,31 @@ SELECT emp_no,
            partition BY department) AS dept_avg
 FROM   emps; 
 
-===== Khác nhau giữa Window functions và GROUP BY ===== 
+------ Khác nhau giữa Window functions và GROUP BY -----------
 + Window functions Tính trung bình  Avg (salary) của tất cả các dòng
 + GROUP BY tính của 1 dòng
 
 ---------------------------------------------------------------------------------------------------
 
-
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    AVG(salary) OVER(PARTITION BY department) AS dept_avg, -- Lấy trung bình cho mỗi dòng và group by theo department
+    AVG(salary) OVER() AS company_avg  -- Lấy trung bình cho mỗi dòng
+FROM employees;
+ 
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    COUNT(*) OVER(PARTITION BY department) as dept_count
+FROM employees;
+ 
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    SUM(salary) OVER(PARTITION BY department) AS dept_payroll,
+    SUM(salary) OVER() AS total_payroll
+FROM employees;
