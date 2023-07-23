@@ -1,3 +1,4 @@
 SHOW tables;
 SHOW COLUMNS FROM cats;
 DESC cats;
+EXPLAIN SELECT * FROM users;
