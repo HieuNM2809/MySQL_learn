@@ -93,8 +93,17 @@ ORDER  BY total DESC
 LIMIT  5; 
 
 
+----------------------- Find users who have liked every single photo in the site ----------------------- 
 
+EXPLAIN SELECT username, 
+       Count(*) AS num_likes 
+FROM   users 
+       INNER JOIN likes 
+               ON users.id = likes.user_id 
+GROUP  BY likes.user_id 
+HAVING num_likes = ( SELECT Count(*) FROM photos);
 
+  
 
 
 
