@@ -1,18 +1,30 @@
 -- https://viblo.asia/p/gioi-thieu-ve-partitioning-trong-mysql-jvEla6kz5kw  
 -- https://www.tranvanbinh.vn/2020/12/ky-thuat-partitioning-trong-mysql.html
 -- https://arctype.com/blog/mysql-partition-table/#vertical-partitioning
-
 -- https://hevodata.com/learn/mysql-partition/
+
 -- https://hevodata.com/learn/mysql-partition/
 -- https://www.w3resource.com/mysql/mysql-partition.php
 -- https://www.percona.com/blog/what-is-mysql-partitioning/
 
 -- 1. Check xem db có support partion
 SHOW PLUGINS; 
+
 -- 1.1. Show all partition
 SELECT PARTITION_NAME, TABLE_ROWS FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_NAME='sales'; 
+
 -- 1.2. Example
  SELECT * FROM range_crypto PARTITION (p3) WHERE close BETWEEN 35000 and 38000;
+ select * from sales1 PARTITION(pmax) UNION  select  * from sales1 PARTITION(p4)
+ select * from sales1 PARTITION(p1)
+
+-- 1.3, Thêm một phân vùng và xếp data lại
+    ALTER TABLE sales1
+    REORGANIZE PARTITION pmax INTO (
+        PARTITION p4 VALUES LESS THAN (1500),
+        PARTITION pmax VALUES LESS THAN MAXVALUE
+    );
+
 
 -- or
  SELECT
