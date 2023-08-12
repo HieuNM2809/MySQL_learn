@@ -3,9 +3,9 @@
 -- https://arctype.com/blog/mysql-partition-table/#vertical-partitioning
 -- https://hevodata.com/learn/mysql-partition/
 
--- https://hevodata.com/learn/mysql-partition/
 -- https://www.w3resource.com/mysql/mysql-partition.php
 -- https://www.percona.com/blog/what-is-mysql-partitioning/
+-- https://dev.mysql.com/doc/refman/8.0/en/partitioning.html
 
 -- 1. Check xem db có support partion
 SHOW PLUGINS; 
